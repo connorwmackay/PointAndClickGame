@@ -27,6 +27,7 @@ public class ScrollingText : MonoBehaviour
 
     void Start()
     {
+        textToDisplay = "";
         tmpText.enabled = false;
         panel.enabled = false;
 
@@ -60,10 +61,6 @@ public class ScrollingText : MonoBehaviour
                 StartCoroutine(HandleScrollingText());
             }
         }
-        else
-        {
-            Debug.Log("Overflowing!");
-        }
     }
 
     void DisplayCurrentText()
@@ -82,10 +79,8 @@ public class ScrollingText : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Return) || Input.GetMouseButtonUp(0))
+        if ((Input.GetKeyUp(KeyCode.Return) || Input.GetMouseButtonUp(0)) && textToDisplay != "")
         {
-            Debug.Log("Return pressed");
-
             if (endInd >= textToDisplay.Length - 1)
             {
                 textToDisplay = "";
