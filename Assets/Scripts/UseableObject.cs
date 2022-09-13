@@ -11,9 +11,6 @@ using UnityEngine.UI;
  */
 public class UseableObject : InteractableObject
 {
-    [SerializeField]
-    private PlayerInventory playerInventory;
-
     public UnityEngine.UI.Image image;
 
     private MeshRenderer meshRenderer;

@@ -31,6 +31,7 @@ public class PlayerInventory : MonoBehaviour
     private List<UnityEngine.UI.Image> inventoryImages;
 
     private UseableObject equippedItem;
+    private int equippedItemID;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class PlayerInventory : MonoBehaviour
         inventoryItems = new List<UseableObject>();
         inventoryImages = new List<UnityEngine.UI.Image>();
         equippedItem = null;
+        equippedItemID = -1;
         isShowingInventory = false;
         inventoryUI.SetActive(isShowingInventory);
     }
@@ -45,7 +47,13 @@ public class PlayerInventory : MonoBehaviour
     public void SetEquippedItem(UseableObject item)
     {
         equippedItem = item;
+        equippedItemID = item.GetInstanceID();
         equippedItemImage.sprite = item.image.sprite;
+    }
+
+    public int GetEquippedItemID()
+    {
+        return equippedItemID;
     }
 
     // Update is called once per frame

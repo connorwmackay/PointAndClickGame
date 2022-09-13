@@ -9,6 +9,12 @@ public class InteractableObject : MonoBehaviour
     [SerializeField]
     private ScrollingText scrollingText;
 
+    [SerializeField]
+    protected List<UseableObject> useableObjects;
+
+    [SerializeField]
+    protected PlayerInventory playerInventory;
+
     private string copypastaTest;
 
     void Start()
@@ -20,8 +26,32 @@ public class InteractableObject : MonoBehaviour
 
     public void PerformInteractAction()
     {
+        Debug.Log("Performing interact action");
 
-        scrollingText.ShowScrollingText(copypastaTest);
-        hasPerformedAction = true;
+        bool hasSetText = false;
+
+        foreach (UseableObject uo in useableObjects)
+        {
+            if (playerInventory.GetEquippedItemID() == uo.GetInstanceID())
+            {
+                scrollingText.ShowScrollingText(
+                    "You used " + playerInventory.GetEquippedItemID() + " on " + name);
+                hasPerformedAction = true;
+                hasSetText = true;
+            }
+        }
+
+        if (!hasSetText && playerInventory.GetEquippedItemID() == -1)
+        {
+            scrollingText.ShowScrollingText("Interacting with " + name + ".");
+            hasPerformedAction = true;
+            hasSetText = true;
+        }
+        else if (!hasSetText)
+        {
+            scrollingText.ShowScrollingText("I can't use " + playerInventory.GetEquippedItemID() + " with " + name + ".");
+            hasPerformedAction = true;
+            hasSetText = true;
+        }
     }
 }
