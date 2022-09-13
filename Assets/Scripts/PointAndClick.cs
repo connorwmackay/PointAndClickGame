@@ -11,6 +11,9 @@ public class PointAndClick : MonoBehaviour
     private UIManager uiManager;
 
     [SerializeField]
+    private PlayerInventory playerInventory;
+
+    [SerializeField]
     private GameObject player;
 
     [SerializeField, Min(0)]

@@ -10,6 +10,9 @@ public class ScrollingText : MonoBehaviour
     private UIManager uiManager;
 
     [SerializeField]
+    private GameObject equippedItem;
+
+    [SerializeField]
     private UnityEngine.UI.Image panel;
 
     [SerializeField]
@@ -46,6 +49,7 @@ public class ScrollingText : MonoBehaviour
         endInd = 0;
         shouldContinue = true;
         StartCoroutine(HandleScrollingText());
+        equippedItem.SetActive(false);
     }
 
     IEnumerator HandleScrollingText()
@@ -90,6 +94,7 @@ public class ScrollingText : MonoBehaviour
                 tmpText.enabled = false;
                 shouldContinue = false;
                 uiManager.EnableGameInput();
+                equippedItem.SetActive(true);
             }
             else if (tmpText.isTextOverflowing)
             {
