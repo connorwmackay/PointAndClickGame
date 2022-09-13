@@ -14,7 +14,7 @@ public class UseableObject : InteractableObject
     [SerializeField]
     private PlayerInventory playerInventory;
 
-    private UnityEngine.UI.Image image;
+    public UnityEngine.UI.Image image;
 
     private MeshRenderer meshRenderer;
 
@@ -28,6 +28,11 @@ public class UseableObject : InteractableObject
         if (hasPerformedAction)
         {
             // Hide the game object
+            if (meshRenderer.enabled == true)
+            {
+                playerInventory.AddItem(this);
+            }
+
             meshRenderer.enabled = false;
         }
     }

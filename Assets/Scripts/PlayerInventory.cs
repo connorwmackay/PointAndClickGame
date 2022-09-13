@@ -5,6 +5,8 @@ using UnityEngine.Rendering;
 
 public class PlayerInventory : MonoBehaviour
 {
+    private int imageWidth, imageHeight;
+
     private bool isShowingInventory;
 
     [SerializeField]
@@ -14,9 +16,13 @@ public class PlayerInventory : MonoBehaviour
     private UnityEngine.UI.Image panel;
 
     [SerializeField]
+    private GameObject images;
+
+    [SerializeField]
     private GameObject inventoryUI;
 
     private List<UseableObject> inventoryItems;
+    private List<UnityEngine.UI.Image> inventoryImages;
 
     private UseableObject equippedItem;
 
@@ -24,6 +30,7 @@ public class PlayerInventory : MonoBehaviour
     void Start()
     {
         inventoryItems = new List<UseableObject>();
+        inventoryImages = new List<UnityEngine.UI.Image>();
         equippedItem = null;
         isShowingInventory = false;
         inventoryUI.SetActive(isShowingInventory);
@@ -54,18 +61,11 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    // Update the items that have been rendered as UI
-    void UpdateRenderedItems()
-    {
-        foreach (UseableObject item in inventoryItems)
-        {
-            
-        }
-    }
-
     public void AddItem(UseableObject item)
     {
         inventoryItems.Add(item);
+        UnityEngine.UI.Image image = item.image;
+        inventoryImages.Add(Instantiate(image, images.transform));
     }
 
     public void RemoveItem(UseableObject item)
