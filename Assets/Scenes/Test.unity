@@ -1011,10 +1011,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1020de1245ec7d448be8bc2afa08fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollingText: {fileID: 1960049550}
+  baseInteractionText: A locked container, looks like it may contain some useful
+    supplies. A key card is needed to open it though.
+  wrongUseableObjectText: I can't open the container with that.
   useableObjects:
   - {fileID: 1548468247}
+  useableObjectsText:
+  - The container opened, looks like there's some documents.
   playerInventory: {fileID: 439130908}
+  scrollingText: {fileID: 1960049550}
   pointAndClick: {fileID: 1372999076}
 --- !u!1 &395049390
 GameObject:
@@ -1569,10 +1574,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1020de1245ec7d448be8bc2afa08fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollingText: {fileID: 1960049550}
+  baseInteractionText: A locked container, looks like it may contain some useful
+    supplies. A key card is needed to open it though.
+  wrongUseableObjectText: I can't open the container with that.
   useableObjects:
   - {fileID: 1548468247}
+  useableObjectsText:
+  - The container opened, looks like there's some medical supplies.
   playerInventory: {fileID: 439130908}
+  scrollingText: {fileID: 1960049550}
   pointAndClick: {fileID: 1372999076}
 --- !u!1 &551028306
 GameObject:
@@ -3314,6 +3324,16 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 439130908}
+    - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: baseInteractionText
+      value: A key card! Maybe I could use this to open locked containers.
+      objectReference: {fileID: 0}
+    - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: wrongUseableObjectText
+      value: A key card! Maybe I could use this to open locked containers.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7fc5c6353e0dc34a86d520056c4fd10, type: 3}
 --- !u!4 &1548468246 stripped
@@ -4642,6 +4662,17 @@ PrefabInstance:
       objectReference: {fileID: 439130908}
     - target: {fileID: 495927986138725855, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
         type: 3}
+      propertyPath: baseInteractionText
+      value: Looks like an air vent. I could use this to get to another part of the
+        ship. Maybe I could open it with some sort of tool.
+      objectReference: {fileID: 0}
+    - target: {fileID: 495927986138725855, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
+        type: 3}
+      propertyPath: wrongUseableObjectText
+      value: I can't open the air vent using this.
+      objectReference: {fileID: 0}
+    - target: {fileID: 495927986138725855, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
+        type: 3}
       propertyPath: useableObjects.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4650,6 +4681,16 @@ PrefabInstance:
       propertyPath: useableObjects.Array.data[0]
       value: 
       objectReference: {fileID: 1722198233}
+    - target: {fileID: 495927986138725855, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
+        type: 3}
+      propertyPath: useableObjectsText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 495927986138725855, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
+        type: 3}
+      propertyPath: useableObjectsText.Array.data[0]
+      value: 'The air vent opened! '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60b9c37ef196ce74d82c4fbf2197e53e, type: 3}
 --- !u!1001 &759258213904762674
@@ -4744,5 +4785,17 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 439130908}
+    - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: baseInteractionText
+      value: A Multi-Tool 4000! The ultimate handyman tool, this will definitely
+        come in handy.
+      objectReference: {fileID: 0}
+    - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: wrongUseableObjectText
+      value: A Multi-Tool 4000! The ultimate handyman tool, this will definitely
+        come in handy.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7fc5c6353e0dc34a86d520056c4fd10, type: 3}

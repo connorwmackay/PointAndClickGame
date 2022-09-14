@@ -8,13 +8,22 @@ public class InteractableObject : MonoBehaviour
     protected bool hasPerformedAction;
 
     [SerializeField]
-    private ScrollingText scrollingText;
+    protected string baseInteractionText;
+
+    [SerializeField]
+    protected string wrongUseableObjectText;
 
     [SerializeField]
     protected List<UseableObject> useableObjects;
 
     [SerializeField]
+    protected List<string> useableObjectsText;
+
+    [SerializeField]
     protected PlayerInventory playerInventory;
+
+    [SerializeField]
+    private ScrollingText scrollingText;
 
     private Outline outline;
 
@@ -36,9 +45,6 @@ public class InteractableObject : MonoBehaviour
         outline.enabled = false;
         outline.OutlineColor = Color.gray;
         outline.OutlineWidth = 5f;
-
-        copypastaTest =
-            "\"Who’s joe?\" a distant voice asks. Instantly everyone nearby hears the sound of 1,000s of bricks rapidly shuffling towards his location. The earth itself seemed to cry out in agony, until finally the ground itself split open and a horrific creature crawled from the ground, covered in mucus and tar. \"Joe Momma…\" the creature whispered. The man cried out in pain as he disintegrated into dust, and the whole world fell silent in fear. \"I did a little trolling.\" the wretched creature remarked before burrowing back into the earth.";
     }
 
     public void ShowOutline()
@@ -76,16 +82,15 @@ public class InteractableObject : MonoBehaviour
 
     public void PerformInteractAction()
     {
-        Debug.Log("Performing interact action");
-
         bool hasSetText = false;
 
-        foreach (UseableObject uo in useableObjects)
+        for (int i=0; i < useableObjects.Count; i++)
         {
+            UseableObject uo = useableObjects[i];
+
             if (playerInventory.GetEquippedItemID() == uo.GetInstanceID())
             {
-                scrollingText.ShowScrollingText(
-                    "You used " + playerInventory.GetEquippedItemID() + " on " + name);
+                scrollingText.ShowScrollingText(useableObjectsText[i]);
                 hasPerformedAction = true;
                 hasSetText = true;
             }
@@ -93,13 +98,21 @@ public class InteractableObject : MonoBehaviour
 
         if (!hasSetText && playerInventory.GetEquippedItemID() == -1)
         {
-            scrollingText.ShowScrollingText("Interacting with " + name + ".");
+            if (baseInteractionText.Length > 0)
+            {
+                scrollingText.ShowScrollingText(baseInteractionText);
+            }
+
             hasPerformedAction = true;
             hasSetText = true;
         }
         else if (!hasSetText)
         {
-            scrollingText.ShowScrollingText("I can't use " + playerInventory.GetEquippedItemID() + " with " + name + ".");
+            if (wrongUseableObjectText.Length > 0)
+            {
+                scrollingText.ShowScrollingText(wrongUseableObjectText);
+            }
+
             hasPerformedAction = true;
             hasSetText = true;
         }
