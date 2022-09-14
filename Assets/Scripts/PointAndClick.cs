@@ -19,6 +19,8 @@ public class PointAndClick : MonoBehaviour
     [SerializeField, Min(0)]
     private float interactionDistance;
 
+    private RaycastHit mouseHit;
+
     void Awake()
     {
         interactionDistance = 5.0f;
@@ -27,22 +29,10 @@ public class PointAndClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mouseHit = PerformRaycastFromMouse();
+
         // Handle clicking
         if (Input.GetMouseButtonUp(0) && !uiManager.GetIsGameInputDisabled())
-        {
-            PerformMouseRaycast();
-        }
-    }
-
-    void PerformMouseRaycast()
-    {
-        Camera mainCamera = Camera.main;
-
-        // Get a ray for the current mouse cursor position
-        Ray mouseRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit mouseHit;
-
-        if (Physics.Raycast(mouseRay, out mouseHit))
         {
             GameObject hitGameObject = mouseHit.collider.gameObject;
 
@@ -51,7 +41,8 @@ public class PointAndClick : MonoBehaviour
             {
                 PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
                 playerMovement.MoveToPoint(mouseHit.point);
-            } else if (hitGameObject.GetComponent<InteractableObject>() != null)
+            }
+            else if (hitGameObject.GetComponent<InteractableObject>() != null)
             {
                 // Handle interaction with the interactable object
                 if (Vector3.Distance(mouseHit.point, player.transform.position) < interactionDistance)
@@ -59,9 +50,30 @@ public class PointAndClick : MonoBehaviour
                     // TODO: Make the player go to the interactable object when clicked, then perform the action
 
                     InteractableObject interactableObject = hitGameObject.GetComponent<InteractableObject>();
+
                     interactableObject.PerformInteractAction();
                 }
             }
         }
+    }
+
+    RaycastHit PerformRaycastFromMouse()
+    {
+        Camera mainCamera = Camera.main;
+
+        Ray mouseRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit mouseHit;
+
+        if (Physics.Raycast(mouseRay, out mouseHit))
+        {
+            return mouseHit;
+        }
+
+        return new RaycastHit();
+    }
+
+    public RaycastHit getLatestHit()
+    {
+        return mouseHit;
     }
 }

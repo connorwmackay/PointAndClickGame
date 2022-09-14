@@ -15,13 +15,16 @@ public class UseableObject : InteractableObject
 
     private MeshRenderer meshRenderer;
 
-    void Awake()
+    protected override void Start()
     {
+        base.Start();
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (hasPerformedAction)
         {
             // Hide the game object

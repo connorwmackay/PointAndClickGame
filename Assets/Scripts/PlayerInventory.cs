@@ -42,6 +42,7 @@ public class PlayerInventory : MonoBehaviour
         equippedItemID = -1;
         isShowingInventory = false;
         inventoryUI.SetActive(isShowingInventory);
+        equippedItemImage.enabled = false;
     }
 
     public void SetEquippedItem(UseableObject item)
@@ -49,6 +50,7 @@ public class PlayerInventory : MonoBehaviour
         equippedItem = item;
         equippedItemID = item.GetInstanceID();
         equippedItemImage.sprite = item.image.sprite;
+        equippedItemImage.enabled = true;
     }
 
     public int GetEquippedItemID()

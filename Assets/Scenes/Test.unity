@@ -903,7 +903,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!208 &363669253
 NavMeshObstacle:
@@ -1015,6 +1015,7 @@ MonoBehaviour:
   useableObjects:
   - {fileID: 1548468247}
   playerInventory: {fileID: 439130908}
+  pointAndClick: {fileID: 1372999076}
 --- !u!1 &395049390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,7 +1461,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!208 &480434871
 NavMeshObstacle:
@@ -1572,6 +1573,7 @@ MonoBehaviour:
   useableObjects:
   - {fileID: 1548468247}
   playerInventory: {fileID: 439130908}
+  pointAndClick: {fileID: 1372999076}
 --- !u!1 &551028306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,10 +2245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2271,7 +2273,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: -1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2325,7 +2327,7 @@ RectTransform:
   m_GameObject: {fileID: 774816669}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9625, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1681051551}
@@ -3148,12 +3150,12 @@ PrefabInstance:
     - target: {fileID: 6539072407540536080, guid: 69c5aa7ae2e5a72468c4c6884f2d37c3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1175
+      value: 1177
       objectReference: {fileID: 0}
     - target: {fileID: 6539072407540536080, guid: 69c5aa7ae2e5a72468c4c6884f2d37c3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1037
+      value: 1117
       objectReference: {fileID: 0}
     - target: {fileID: 6539072407540536080, guid: 69c5aa7ae2e5a72468c4c6884f2d37c3,
         type: 3}
@@ -3232,6 +3234,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UseableCube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 759258214401437665, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 759258214401437674, guid: a7fc5c6353e0dc34a86d520056c4fd10,
         type: 3}
       propertyPath: m_RootOrder
@@ -3292,6 +3299,11 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 1460672338}
+    - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: pointAndClick
+      value: 
+      objectReference: {fileID: 1372999076}
     - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
         type: 3}
       propertyPath: scrollingText
@@ -4270,7 +4282,6 @@ GameObject:
   - component: {fileID: 1894142734}
   - component: {fileID: 1894142737}
   - component: {fileID: 1894142738}
-  - component: {fileID: 1894142739}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -4287,7 +4298,7 @@ RectTransform:
   m_GameObject: {fileID: 1894142732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9875, y: 1.6959375, z: 1}
+  m_LocalScale: {x: 1.0121875, y: 1.6959375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1426677183}
@@ -4295,9 +4306,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -159, y: 0}
+  m_SizeDelta: {x: -350.48016, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1894142734
 MonoBehaviour:
@@ -4381,20 +4392,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1894142739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894142732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 3
-  m_AspectRatio: 11.780822
 --- !u!1 &1960049548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4568,6 +4565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableCube
       objectReference: {fileID: 0}
+    - target: {fileID: 495927986138725849, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 495927986138725852, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
         type: 3}
       propertyPath: m_RootOrder
@@ -4625,6 +4627,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 495927986138725855, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
         type: 3}
+      propertyPath: pointAndClick
+      value: 
+      objectReference: {fileID: 1372999076}
+    - target: {fileID: 495927986138725855, guid: 60b9c37ef196ce74d82c4fbf2197e53e,
+        type: 3}
       propertyPath: scrollingText
       value: 
       objectReference: {fileID: 1960049550}
@@ -4656,6 +4663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UseableCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 759258214401437665, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 759258214401437674, guid: a7fc5c6353e0dc34a86d520056c4fd10,
         type: 3}
@@ -4717,6 +4729,11 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 1460672338}
+    - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
+        type: 3}
+      propertyPath: pointAndClick
+      value: 
+      objectReference: {fileID: 1372999076}
     - target: {fileID: 759258214401437675, guid: a7fc5c6353e0dc34a86d520056c4fd10,
         type: 3}
       propertyPath: scrollingText
